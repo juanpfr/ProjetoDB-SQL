@@ -1,0 +1,35 @@
+Entidades:
+
+	tbl_aluno
+		id_aluno
+		nome_aluno
+		email_aluno
+		cpf_aluno
+		id_endereco
+		id_curso
+
+	tbl_endereco
+		id_endereco
+		cep_endereco
+		nome_rua_endereco
+		numero_endereco
+		complemento_endereco
+
+	tbl_curso
+		id_curso
+		nome_curso
+		horas_curso
+		data_inicio_curso
+		data_final_curso
+
+	tbl_diciplina
+
+	tbl_departamento
+
+	tbl_professor
+
+	tbl_matricula
+
+	tbl_historico
+
+	tbl_turma
