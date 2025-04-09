@@ -1,0 +1,12 @@
+Relacionamentos:
+
+  // Tabela >(dentro) Tabela
+
+	tbl_endereco > tbl_aluno
+	tbl_curso > tbl_aluno
+	tbl_turma > tbl_aluno
+	tbl_matricula > tbl_aluno
+	tbl_historico > tbl_matricula
+	tbl_departamento > tbl_curso
+	tbl_diciplina > tbl_professor
+	tbl_professor > tbl_curso
