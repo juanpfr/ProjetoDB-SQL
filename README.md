@@ -38,7 +38,7 @@ O projeto será dividido nas seguintes fases:
 - **Reprovação**: O aluno só pode ser reprovado no máximo 3 vezes na mesma disciplina.
 - **Capacidade de Alunos**: A universidade terá no máximo 2.000 alunos matriculados simultaneamente, distribuídos entre 6 cursos distintos.
 - **Entrada de Novos Alunos**: A universidade recebe 200 alunos novos por ano.
-- **Disciplinas**: Existem 60 disciplinas disponíveis no total.
+- **Disciplinas**: Existem 64 disciplinas disponíveis no total.
 
 ### Regras Relacionadas ao Histórico Escolar:
 - **Histórico Escolar**: O Histórico Escolar traz todas as disciplinas cursadas por um aluno, incluindo:

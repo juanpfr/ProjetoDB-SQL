@@ -32,4 +32,12 @@
 10. O aluno só pode ser reprovado no máximo 3 vezes na mesma disciplina.
    - Se o aluno reprovar mais de 3 vezes na mesma disciplina ele perde o curso.
 
+11. A universidade terá no máximo 2000 alunos matriculados simultaneamente, em 8 cursos distintos.
+   - Compreende-se que é uma universidade de porte médio, com uma oferta acadêmica diversificada e um foco na qualidade do ensino.
+
+12. Entram 200 alunos novos por ano.
+   - Seja por meio de vestibular ou transferência.
+
+13. Existem 64 disciplinas no total disponíveis.
+
 ===========================================
