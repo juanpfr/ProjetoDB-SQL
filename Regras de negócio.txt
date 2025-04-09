@@ -1,0 +1,35 @@
+===========================================
+                REGRAS DE NEGÓCIO
+===========================================
+
+1. Um aluno só pode estar matriculado em um curso por vez.
+   - Exemplo: Se o aluno estiver matriculado no curso de ADS, ele não pode estar matriculado no curso de Logística ao mesmo tempo.
+
+2. Alunos possuem um código de identificação (RA).
+   - Precisamos definir o padrão do RA: será composto por letras, números ou ambos? Esse detalhe deve ser determinado.
+
+3. Cursos são compostos por várias disciplinas.
+   - Exemplo: No curso de ADS, temos disciplinas como Banco de Dados, Lógica de Programação, entre outras.
+
+4. Cada disciplina terá no máximo 28 alunos por turma.
+   - Caso o número de alunos matriculados em uma disciplina ultrapasse 28, será necessário abrir uma nova turma para acomodar os alunos adicionais.
+
+5. As disciplinas podem ser obrigatórias ou optativas, dependendo do curso.
+   - Exemplo: no curso de matemática, Calculo I, II e III é obrigatório porém a disciplina estatística computacional é opicional.
+
+6. As disciplinas pertencem a departamentos específicos.
+   - Exemplo: um departamento de Ciências da computação, um departamento de matemática e assim sucessivamente.
+
+7. Cada disciplina possui um código de identificação.
+   - Também não foi definido o padrão.
+
+8. Alunos podem trancar a matrícula, não estando então matriculados em nenhuma disciplina no semestre.
+   - Se o aluno trancar a matrícula, não pode estar matriculado em nenhuma disciplina.
+
+9. Em cada semestre, cada aluno pode se matricular em no máximo 8 disciplinas.
+   - Se ficar de DP em várias disciplinas e ultrapassar as 8 disciplinas, precisará fazer no próximo semestre.
+
+10. O aluno só pode ser reprovado no máximo 3 vezes na mesma disciplina.
+   - Se o aluno reprovar mais de 3 vezes na mesma disciplina ele perde o curso.
+
+===========================================
