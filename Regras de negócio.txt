@@ -40,4 +40,13 @@
 
 13. Existem 64 disciplinas no total disponíveis.
 
+14. Um histórico escolar traz todas as disciplinas cursadas por um aluno, incluindo nota final, frequência e período do curso realizado.
+
+15. Professores podem ser cadastrados mesmo sem lecionar disciplinas.
+(Isso evita que um professor não possa lecionar uma determinada disciplina no futuro).
+
+16. Existem 30 professores trabalhando na escola.
+
+17 Cada professor irá lecionar no máximo 3 disciplinas diferentes.
+
 ===========================================
