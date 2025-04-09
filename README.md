@@ -34,8 +34,8 @@ O projeto será dividido nas seguintes fases:
 
 ### Regras Relacionadas aos Alunos:
 - **Trancamento de Matrícula**: Alunos podem trancar matrícula, não estando então matriculados em nenhuma disciplina no semestre.
-- **Limite de Disciplinas**: Cada aluno pode se matricular em no máximo 6 disciplinas por semestre.
-- **Reprovação**: O aluno só pode ser reprovado no máximo 2 vezes na mesma disciplina.
+- **Limite de Disciplinas**: Cada aluno pode se matricular em no máximo 8 disciplinas por semestre.
+- **Reprovação**: O aluno só pode ser reprovado no máximo 3 vezes na mesma disciplina.
 - **Capacidade de Alunos**: A universidade terá no máximo 2.000 alunos matriculados simultaneamente, distribuídos entre 6 cursos distintos.
 - **Entrada de Novos Alunos**: A universidade recebe 200 alunos novos por ano.
 - **Disciplinas**: Existem 60 disciplinas disponíveis no total.
