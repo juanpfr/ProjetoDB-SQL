@@ -2,5 +2,12 @@
           RELACIONAMENTOS ENTRE TABELAS
 ===========================================
 
-1. tbl_aluno (0,n) -> (0,1) tbl_curso
-    - Um curso pode ter 0 ou muitos alunos, Um aluno pode ter 0 ou 1 curso.
+1. tbl_aluno -> tbl_curso.
+
+2. tbl_departamento -> tbl_curso.
+
+3. tbl_historico -> tbl_aluno.
+
+4. tbl_departamento -> tbl_professor.
+
+5. tbl_disciplina -> tbl_departamento
