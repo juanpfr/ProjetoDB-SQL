@@ -1,0 +1,6 @@
+===========================================
+          RELACIONAMENTOS ENTRE TABELAS
+===========================================
+
+1. tbl_aluno (0,n) -> (0,1) tbl_curso
+    - Um curso pode ter 0 ou muitos alunos, Um aluno pode ter 0 ou 1 curso.

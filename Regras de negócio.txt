@@ -47,6 +47,20 @@
 
 16. Existem 30 professores trabalhando na escola.
 
-17 Cada professor irá lecionar no máximo 3 disciplinas diferentes.
+17. Cada professor irá lecionar no máximo 3 disciplinas diferentes.
+
+18. Cada professor é binculado a um departamento.
+   -A vinculação de cada professor a um departamento é fundamental para a organização, gestão e desenvolvimento das atividades acadêmicas em uma univerdidade.
+
+   - Troca de conhecimentos: A vinculação a um departamento promove a troca de conhecimentos e experiências entre os professores, o que pode levar a novas ideias e projetos de pesquisa.
+
+19. Professores são identificados por um código de professor.
+
+   - Não foi definido o padrão.
 
 ===========================================
+                Observações
+===========================================
+
+    Essas são as regras principais do negócio, aquilo que o cliente nos passou, obviamente, haverá mais coisas a serem implementadas, pois o cliente pode ter esquecido de passar informações ou achar que elas não são relevantes.
+    Nos processos de análise, vamos descobrindo a necessidade de acrescentar informações a regra de negócios.
