@@ -1,0 +1,72 @@
+===========================================
+          ATRIBUTOS DAS TABELAS
+===========================================
+
+1. tbl_aluno(
+    Número de matrícula
+    Nome
+    Sobrenome
+    Endereço - (Atributo composto, um campo para cada)
+        Rua
+        Número
+        Bairro ou CEP
+        Cidade
+        Estado
+    Código do curso
+    Adicionais
+        Gênero
+        CPF
+        Email
+)
+
+2. tbl_historico(
+    Código do histórico
+    Código do aluno
+)
+
+3. tbl_professor(
+    Código do Professor
+    Nome
+    Sobrenome
+    Gênero
+    CPF
+    Email
+    Endereço - (Atributo composto, um campo para cada)
+        Rua
+        Número
+        Bairro ou CEP
+        Cidade
+        Estado
+    Código do departamento
+    Código da disciplina
+)
+
+4. tbl_disciplina(
+    Código da disciplina
+    Nome
+    Obrigatoriedade
+    Dependencia
+    Código do professor
+    Código do curso
+)
+
+5. tbl_curso(
+    Código do curso
+    Nome
+    Carga horária
+    Data prevista de início
+    Data prevista de finalização
+    Código do departamento
+)
+
+6. tbl_departamento(
+    Código do departamento
+    Nome
+    Código do professor
+)
+
+7. tbl_professor_disciplina(
+    Código professor disciplina
+    Código do professor
+    Código da disciplina
+)
