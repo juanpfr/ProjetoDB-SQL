@@ -17,3 +17,5 @@
 7. Disciplina tem professores específicos.
 
 8. Departamento controla curso.
+
+9. Disciplina depende de outra disciplina.
