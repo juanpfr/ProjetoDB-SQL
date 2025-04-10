@@ -15,3 +15,5 @@
 6. Professor é vinculado a um departamento.
 
 7. Disciplina tem professores específicos.
+
+8. Departamento controla curso.
