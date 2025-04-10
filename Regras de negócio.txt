@@ -49,7 +49,7 @@
 
 17. Cada professor irá lecionar no máximo 3 disciplinas diferentes.
 
-18. Cada professor é binculado a um departamento.
+18. Cada professor é vinculado a um departamento.
    -A vinculação de cada professor a um departamento é fundamental para a organização, gestão e desenvolvimento das atividades acadêmicas em uma univerdidade.
 
    - Troca de conhecimentos: A vinculação a um departamento promove a troca de conhecimentos e experiências entre os professores, o que pode levar a novas ideias e projetos de pesquisa.

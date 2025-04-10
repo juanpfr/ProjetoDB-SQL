@@ -2,12 +2,16 @@
           RELACIONAMENTOS ENTRE TABELAS
 ===========================================
 
-1. tbl_aluno -> tbl_curso.
+1. Aluno está matriculado em curso.
 
-2. tbl_departamento -> tbl_curso.
+2. Disciplina pertence ao curso.
 
-3. tbl_historico -> tbl_aluno.
+3. Aluno cursa disciplina.
 
-4. tbl_departamento -> tbl_professor.
+4. Disciplina pertence a um departamento.
 
-5. tbl_disciplina -> tbl_departamento
+5. Histórico trás disciplinas cursadas por um aluno.
+
+6. Professor é vinculado a um departamento.
+
+7. Disciplina tem professores específicos.
