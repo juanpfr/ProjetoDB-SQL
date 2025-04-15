@@ -3,20 +3,32 @@
 ===========================================
 
 1. tbl_aluno(
-    Número de matrícula
-    Nome
-    Sobrenome
-    Endereço - (Atributo composto, um campo para cada)
-        Rua
-        Número
-        Bairro ou CEP
-        Cidade
-        Estado
-    Código do curso
-    Adicionais
-        Gênero
-        CPF
-        Email
+    ra_aluno
+    nome_aluno
+    sobrenome_aluno
+    data_nascimento_aluno
+    identificacao_genero_aluno
+    cpf_aluno
+    rg_aluno
+    nacionalidade_aluno
+    estado_civil_aluno
+    naturalidade_aluno
+    deficiencia_aluno
+    data_ingresso_aluno
+    endereco_rua_aluno
+    endereco_numero_aluno
+    endereco_bairro_aluno
+    endereco_cidade_aluno
+    endereco_cep_aluno
+    telefone_celular_aluno
+    telefone_residencial_aluno
+    telefone_comercial_aluno
+    telefone_recado_aluno
+    email_pessoal_aluno
+    email_corporativo_aluno
+    status_aluno
+    nome_mae_aluno
+    nome_pai_aluno
 )
 
 2. tbl_historico(
@@ -25,20 +37,22 @@
 )
 
 3. tbl_professor(
-    Código do Professor
-    Nome
-    Sobrenome
-    Gênero
-    CPF
-    Email
-    Endereço - (Atributo composto, um campo para cada)
-        Rua
-        Número
-        Bairro ou CEP
-        Cidade
-        Estado
-    Código do departamento
-    Código da disciplina
+    cod_professor
+    nome_professor
+    sobrenome_professor
+    data_nascimento_professor
+    identificacao_genero_professor
+    data_contratacao_professor
+    tipo_vinculo_professor
+    cpf_professor
+    rg_professor
+    titulacao_professor
+    endereco_rua_professor
+    endereco_numero_professor
+    endereco_bairro_professor
+    endereco_cidade_professor
+    endereco_cep_professor
+
 )
 
 4. tbl_disciplina(
