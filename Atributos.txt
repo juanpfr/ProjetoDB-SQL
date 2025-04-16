@@ -52,35 +52,52 @@
     endereco_bairro_professor
     endereco_cidade_professor
     endereco_cep_professor
-
+    telefone_celular_professor
+    telefone_residencial_professor
+    telefone_comercial_professor
+    telefone_recado_professor
+    email_pessoal_professor
+    email_corporativo_professor
+    cod_departamento
+    status_professor
 )
 
-4. tbl_disciplina(
-    Código da disciplina
-    Nome
-    Obrigatoriedade
-    Dependencia
-    Código do professor
-    Código do curso
+4. tbl_matricula(
+    cod_matricula
+    ra_aluno
+    cod_turma
+    data_matricula
+    data_cancelamento
+    status_matricula
 )
 
 5. tbl_curso(
-    Código do curso
-    Nome
-    Carga horária
-    Data prevista de início
-    Data prevista de finalização
-    Código do departamento
+    cod_curso
+    nome_curso
+    tipo_curso
+    duracao_meses_curso
+    cod_departamento
+    turno_curso
+    carga_horaria_total_curso
+    modalidade_curso
+    cod_professor (coordenador)
 )
 
 6. tbl_departamento(
-    Código do departamento
-    Nome
-    Código do professor
+    cod_departamento
+    nome_departamento
 )
 
-7. tbl_professor_disciplina(
-    Código professor disciplina
-    Código do professor
-    Código da disciplina
+7. tbl_turma(
+    cod_turma
+    cod_curso
+    sala_turma
+    ano_turma
+    semestre_turma
+    cod_disciplina
+    cod_professor
+    periodo_turma
+    num_alunos_turma
+    data_inicio_turma
+    data_fim_turma
 )
