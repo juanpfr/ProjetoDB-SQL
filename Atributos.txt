@@ -32,8 +32,13 @@
 )
 
 2. tbl_historico(
-    Código do histórico
-    Código do aluno
+    cod_historico
+    cod_disciplina
+    ra_aluno
+    ano_historico
+    semestre_historico
+    nota_historico
+    situacao_historico
 )
 
 3. tbl_professor(
@@ -86,6 +91,7 @@
 6. tbl_departamento(
     cod_departamento
     nome_departamento
+    cod_professor
 )
 
 7. tbl_turma(
@@ -100,4 +106,14 @@
     num_alunos_turma
     data_inicio_turma
     data_fim_turma
+)
+
+8. tbl_disciplina(
+    cod_disciplina
+    nome_disciplina
+    pre_requisitos_disciplina
+    ementa_disciplina
+    cod_departamento
+    carga_horaria
+    cod_curso
 )
