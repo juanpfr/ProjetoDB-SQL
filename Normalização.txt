@@ -1,0 +1,104 @@
+===========================================
+          NORMALIZAÇÃO DAS TABELAS: 1FN
+===========================================
+
+Uma tabela está na primeira forma normal quando:
+
+1. Existe uma chave primária.
+
+2. Somente possui valores atômicos (Significa que cada célula de uma tabela quando contém um valor indivisível).
+
+    Exemplo:
+        - "Marta Santos" (Juntos): Não atômico, pode ser dividido em partes significativas.
+        - "Marta" (Separado): Atômico, representa uma única unidade de informação (O nome próprio).
+        - "Santos" (Separado): Atômico, representa uma única unidade de informação (O sobrenome).
+
+3. Relação não possui atributos multivalorados ou aninhados (Em vez de ter um único valor, você pode ter um conjunto de valores associados a ele).
+
+    Exemplo:
+        - Telefones de uma pessoa: Uma pessoa pode ter vários números de telefone, um celular pessoal, um celular de trabalho e/ou um telefone fixo.
+
+4. Relação não possui atributos compostos (Atributos compostos são tipo de atributo pode ser dividido em sub-atributos menores, cada um com seu próprio significado).
+
+    Exemplo:
+        - Endereço
+        - Rua
+        - Número
+        - Bairro
+        - Cidade
+        - Estado
+        - CEP
+
+===========================================
+          NORMALIZANDO AS TABELAS: 1FN
+===========================================
+
+1. tbl_aluno
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Sim
+    Atributos compostos: Sim
+Não normalizada.
+
+2. tbl_historico
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Sim
+Não normalizada.
+
+3. tbl_professor
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Sim
+    Atributos compostos: Sim
+Não normalizada.
+
+4. tbl_matricula
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Sim
+    Atributos compostos: Sim
+Normalizada.
+
+5. tbl_curso
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Sim
+Não normalizada.
+
+6. tbl_departamento
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
+Normalizada.
+
+7. tbl_turma
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Sim
+Não normalizada.
+
+8. tbl_disciplina
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
+Normalizada.
+
+9. tbl_curso_disciplina
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
+Normalizada.
+
+10. tbl_professor_disciplina
+    Chave primária: Sim
+    Valores atômicos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
+Normalizada.

@@ -38,6 +38,7 @@
     ano_historico
     semestre_historico
     nota_historico
+    frequencia_historico
     situacao_historico
 )
 
@@ -73,6 +74,7 @@
     cod_turma
     data_matricula
     data_cancelamento
+    motivo_cancelamento
     status_matricula
 )
 
@@ -111,9 +113,21 @@
 8. tbl_disciplina(
     cod_disciplina
     nome_disciplina
-    pre_requisitos_disciplina
+    // pre_requisitos_disciplina
     ementa_disciplina
     cod_departamento
     carga_horaria
     cod_curso
+)
+
+9. tbl_curso_disciplina(
+    cod_curso_disciplina
+    cod_curso
+    cod_disciplina
+)
+
+10. tbl_professor_disciplina(
+    cod_professor_disciplina
+    cod_professor
+    cod_disciplina
 )
