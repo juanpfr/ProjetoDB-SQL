@@ -58,6 +58,7 @@
     endereco_bairro_professor
     endereco_cidade_professor
     endereco_cep_professor
+    endereco_complemento_professor
     telefone_celular_professor
     telefone_residencial_professor
     telefone_comercial_professor

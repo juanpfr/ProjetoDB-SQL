@@ -50,8 +50,8 @@ Não normalizada.
 3. tbl_professor
     Chave primária: Sim
     Valores atômicos: Sim
-    Atributos multivalorados ou aninhados: Sim
-    Atributos compostos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
 Não normalizada.
 
 4. tbl_matricula
