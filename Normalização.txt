@@ -36,23 +36,23 @@ Uma tabela está na primeira forma normal quando:
 1. tbl_aluno
     Chave primária: Sim
     Valores atômicos: Sim
-    Atributos multivalorados ou aninhados: Sim
-    Atributos compostos: Sim
-Não normalizada.
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
+Normalizada.
 
 2. tbl_historico
     Chave primária: Sim
     Valores atômicos: Sim
     Atributos multivalorados ou aninhados: Não
-    Atributos compostos: Sim
-Não normalizada.
+    Atributos compostos: Não
+Normalizada.
 
 3. tbl_professor
     Chave primária: Sim
     Valores atômicos: Sim
     Atributos multivalorados ou aninhados: Não
     Atributos compostos: Não
-Não normalizada.
+Normalizada.
 
 4. tbl_matricula
     Chave primária: Sim
@@ -65,8 +65,8 @@ Normalizada.
     Chave primária: Sim
     Valores atômicos: Sim
     Atributos multivalorados ou aninhados: Não
-    Atributos compostos: Sim
-Não normalizada.
+    Atributos compostos: Não
+Normalizada.
 
 6. tbl_departamento
     Chave primária: Sim
@@ -79,8 +79,8 @@ Normalizada.
     Chave primária: Sim
     Valores atômicos: Sim
     Atributos multivalorados ou aninhados: Não
-    Atributos compostos: Sim
-Não normalizada.
+    Atributos compostos: Não
+Normalizada.
 
 8. tbl_disciplina
     Chave primária: Sim
