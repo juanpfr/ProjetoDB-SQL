@@ -120,10 +120,9 @@
 
 11. tbl_telefone(
     cod_telefone
-    telefone_celular
-    telefone_residencial
-    telefone_comercial
-    telefone_recado
+    ra_aluno
+    num_telefone
+    tipo_telefone
 )
 
 12. tbl_endereco(
