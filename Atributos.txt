@@ -15,15 +15,8 @@
     naturalidade_aluno
     deficiencia_aluno
     data_ingresso_aluno
-    endereco_rua_aluno
-    endereco_numero_aluno
-    endereco_bairro_aluno
-    endereco_cidade_aluno
-    endereco_cep_aluno
-    telefone_celular_aluno
-    telefone_residencial_aluno
-    telefone_comercial_aluno
-    telefone_recado_aluno
+    cod_endereco
+    cod_telefone
     email_pessoal_aluno
     email_corporativo_aluno
     status_aluno
@@ -53,16 +46,8 @@
     cpf_professor
     rg_professor
     titulacao_professor
-    endereco_rua_professor
-    endereco_numero_professor
-    endereco_bairro_professor
-    endereco_cidade_professor
-    endereco_cep_professor
-    endereco_complemento_professor
-    telefone_celular_professor
-    telefone_residencial_professor
-    telefone_comercial_professor
-    telefone_recado_professor
+    cod_endereco
+    cod_telefone
     email_pessoal_professor
     email_corporativo_professor
     cod_departamento
@@ -131,4 +116,22 @@
     cod_professor_disciplina
     cod_professor
     cod_disciplina
+)
+
+11. tbl_telefone(
+    cod_telefone
+    telefone_celular
+    telefone_residencial
+    telefone_comercial
+    telefone_recado
+)
+
+12. tbl_endereco(
+    cod_endereco
+    endereco_rua
+    endereco_numero
+    endereco_bairro
+    endereco_cidade
+    endereco_cep
+    endereco_complemento
 )

@@ -57,8 +57,8 @@ Normalizada.
 4. tbl_matricula
     Chave primária: Sim
     Valores atômicos: Sim
-    Atributos multivalorados ou aninhados: Sim
-    Atributos compostos: Sim
+    Atributos multivalorados ou aninhados: Não
+    Atributos compostos: Não
 Normalizada.
 
 5. tbl_curso
@@ -102,3 +102,41 @@ Normalizada.
     Atributos multivalorados ou aninhados: Não
     Atributos compostos: Não
 Normalizada.
+
+===========================================
+          NORMALIZAÇÃO DAS TABELAS: 2FN
+===========================================
+
+Uma tabela está na segunda forma normal quando:
+
+1. Está na 1FN
+
+2. Todos os atributos não-chave são funcionalmente dependentes de todas as partes da chave primária. (Qualquer atributos da tabela que não seja uma chave pk ou fk, tem que ser dependende funcionalmente da chave primária).
+
+3. Não existem dependências parciais, e atributos não dependem de chaves candidatas. (Significa que todos os atributos não-chave dependem da chave primária completa)
+
+4. Caso contrário, deve-se gerar uma nova tabela com os dados. (Ou seja, se você localizar na análise das tabelas atributos que não seja funcionalmente dependentes da PK, você deve levar esses atributos para essa nova tabela)
+
+5. Um atributo-chave é um que é uma PK ou parte de uma PK composta.
+    - Exemplo:
+
+    |=======================================================================|
+    | RA_Aluno | Nome_Aluno | Código_Disciplina | Nome_Disciplina    | Nota |
+    |=======================================================================|
+    | 555      | Juliana    | BD01              | Banco de dados     | 8.5  |
+    |-----------------------------------------------------------------------|
+    | 555      | Juliana    | PT01              | Programação Python | 7.0  |
+    |=======================================================================|
+
+    A chave primária é composta: (RA_Aluno, Código_Disciplina)
+
+    Nome_Aluno (Depende do RA_Aluno) e Nome_Disciplina (Depende do Código_Disciplina) então, dependem só de parte da chave, não da chave completa.
+
+    Portanto, esta tabela não está em 2FN.
+
+    Para chegar na FN2:
+        É preciso separar essas dependências parciais em outras tabelas, como:
+
+        Aluno (RA_Aluno, Nome_Aluno)
+        Disciplina (Código_Disciplina, Nome_Disciplina)
+        Notas (RA_Aluno, Código_Disciplina, Nota)
