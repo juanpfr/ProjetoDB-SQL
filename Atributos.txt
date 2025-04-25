@@ -118,14 +118,21 @@
     cod_disciplina
 )
 
-11. tbl_telefone(
+11. tbl_telefone_aluno(
     cod_telefone
     ra_aluno
     num_telefone
     tipo_telefone
 )
 
-12. tbl_endereco(
+12. tbl_telefone_professor(
+    cod_telefone
+    cod_professor
+    num_telefone
+    tipo_telefone
+)
+
+13. tbl_endereco(
     cod_endereco
     endereco_rua
     endereco_numero
