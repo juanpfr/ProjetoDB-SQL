@@ -140,3 +140,13 @@ Uma tabela está na segunda forma normal quando:
         Aluno (RA_Aluno, Nome_Aluno)
         Disciplina (Código_Disciplina, Nome_Disciplina)
         Notas (RA_Aluno, Código_Disciplina, Nota)
+
+===========================================
+          NORMALIZAÇÃO DAS TABELAS: 3FN
+===========================================
+
+Uma tabela está na terceira forma normal quando:
+
+1. Está na 2FN
+
+2.

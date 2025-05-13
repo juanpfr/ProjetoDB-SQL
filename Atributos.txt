@@ -25,7 +25,6 @@
 )
 
 2. tbl_historico(
-    cod_historico
     cod_disciplina
     ra_aluno
     ano_historico
@@ -79,7 +78,6 @@
 6. tbl_departamento(
     cod_departamento
     nome_departamento
-    cod_professor
 )
 
 7. tbl_turma(
@@ -102,14 +100,15 @@
     // pre_requisitos_disciplina
     ementa_disciplina
     cod_departamento
-    carga_horaria
-    cod_curso
+    carga_horaria_total
+    // PK = cod_disciplina, RA_Aluno, ano_historico e semestre_historico
 )
 
 9. tbl_curso_disciplina(
-    cod_curso_disciplina
     cod_curso
     cod_disciplina
+    tipo_disciplina
+    // PK = cod_curso, cod_disciplina
 )
 
 10. tbl_professor_disciplina(
@@ -138,6 +137,7 @@
     endereco_numero
     endereco_bairro
     endereco_cidade
+    endereco_estado
     endereco_cep
     endereco_complemento
 )
