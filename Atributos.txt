@@ -36,7 +36,7 @@
 
 3. tbl_professor(
     cod_professor
-    nome_professor
+    nome_professor 
     sobrenome_professor
     data_nascimento_professor
     identificacao_genero_professor
