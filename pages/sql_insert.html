@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Comandos SQL - CREATE TABLES</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            font-family: Consolas, monospace, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Universidade DB</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="entidades.html">Entidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="atributos.html">Atributos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relacionamentos.html">Relacionamentos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="regras.html">Regras de Negócio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="normalizacao.html">Normalização</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sql.html">Comandos SQL</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sql_insert.html">INSERT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Comandos SQL - INSERT INTO</h1>
+        <p class="mb-4">
+            Os comandos <strong>INSERT INTO</strong> são usados para inserir novos dados as tabelas.
+        </p>
+        <pre><code>
+USE Universidade;
+
+-- Inserir departamentos
+INSERT INTO tbl_departamento (nome_departamento) VALUES
+('Ciência da Computação'),
+('Engenharia Elétrica'),
+('Administração'),
+('Matemática'),
+('Física');
+
+-- Inserir endereços
+INSERT INTO tbl_endereco (nome_rua, numero, complemento, bairro, cidade, estado, cep) VALUES
+('Rua das Flores', 123, 'Apto 101', 'Jardim América', 'São Paulo', 'SP', '01456001'),
+('Avenida Brasil', 987, 'Casa', 'Centro', 'Rio de Janeiro', 'RJ', '20040030'),
+('Rua das Acácias', 250, 'Bloco B', 'Vila Mariana', 'São Paulo', 'SP', '04123050'),
+('Praça da Liberdade', 10, 'Sala 5', 'Liberdade', 'Belo Horizonte', 'MG', '30140071'),
+('Rua das Palmeiras', 75, 'Apartamento 302', 'Pinheiros', 'São Paulo', 'SP', '05422030');
+
+-- Inserir disciplinas
+INSERT INTO tbl_disciplina (nome_disciplina, ementa, cod_departamento, carga_horaria_total) VALUES
+('Introdução à Programação', 'Fundamentos básicos de programação.', 1, 60),
+('Circuitos Elétricos', 'Estudo de circuitos e componentes elétricos.', 2, 80),
+('Teoria Administrativa', 'Princípios e teorias da administração.', 3, 70),
+('Cálculo I', 'Limites, derivadas e integrais.', 4, 90),
+('Mecânica Clássica', 'Leis de Newton e dinâmica.', 5, 75);
+
+-- Inserir professores
+INSERT INTO tbl_professor (nome_professor, sobrenome, data_nascimento, identificacao_genero, data_contratacao, tipo_vinculo, cpf, rg, titulacao, cod_endereco, email_pessoal, email_corporativo, status_professor, cod_departamento) VALUES
+('Carlos', 'Silva', '1975-03-15', 'Masculino', '2010-02-01', 'Efetivo', '123.456.789-00', 'MG-12.345.678', 'Doutor', 1, 'carlos.silva@gmail.com', 'c.silva@univ.edu.br', 'Ativo', 1),
+('Ana', 'Souza', '1980-07-22', 'Feminino', '2015-08-15', 'Contrato', '987.654.321-00', 'RJ-87.654.321', 'Mestre', 2, 'ana.souza@gmail.com', 'a.souza@univ.edu.br', 'Ativo', 2),
+('Roberto', 'Lima', '1968-11-30', 'Masculino', '2005-01-10', 'Efetivo', '321.654.987-00', 'SP-56.789.123', 'Doutor', 3, 'roberto.lima@gmail.com', 'r.lima@univ.edu.br', 'Ativo', 3),
+('Juliana', 'Pereira', '1985-05-18', 'Feminino', '2018-03-20', 'Substituto', '456.789.123-00', 'MG-23.456.789', 'Especialista', 4, 'juliana.pereira@gmail.com', 'j.pereira@univ.edu.br', 'Ativo', 4),
+('Marcos', 'Oliveira', '1979-09-09', 'Masculino', '2012-06-25', 'Efetivo', '654.321.987-00', 'RJ-45.678.912', 'Doutor', 5, 'marcos.oliveira@gmail.com', 'm.oliveira@univ.edu.br', 'Ativo', 5);
+
+-- Inserir telefones dos professores
+INSERT INTO tbl_telefone_professor (cod_professor, num_telefone, tipo_telefone) VALUES
+(1, '(11) 99999-1111', 'Celular'),
+(1, '(11) 3222-1111', 'Fixo'),
+(2, '(21) 98888-2222', 'Celular'),
+(3, '(11) 97777-3333', 'Celular'),
+(4, '(31) 96666-4444', 'Celular');
+
+-- Inserir cursos
+INSERT INTO tbl_curso (nome_curso, tipo, duracao_meses, cod_departamento, turno, carga_horaria_total, modalidade) VALUES
+('Engenharia de Software', 'Graduação', 48, 1, 'Noturno', 3200, 'Presencial'),
+('Engenharia Elétrica', 'Graduação', 60, 2, 'Integral', 3600, 'Presencial'),
+('Administração de Empresas', 'Graduação', 48, 3, 'Matutino', 3000, 'Presencial'),
+('Licenciatura em Matemática', 'Graduação', 48, 4, 'Noturno', 2800, 'Presencial'),
+('Física Aplicada', 'Graduação', 48, 5, 'Integral', 3000, 'Presencial');
+
+-- Inserir alunos
+INSERT INTO tbl_aluno (nome_aluno, sobrenome_aluno, data_nascimento, identificacao_genero, cpf, rg, nacionalidade, estado_civil, naturalidade, deficiencia, data_ingresso, email_pessoal, email_coorporativo, status_aluno, nome_mae, nome_pai, cod_endereco, cod_curso) VALUES
+('Pedro', 'Alves', '2000-01-10', 'Masculino', '111.222.333-44', 'SP-12.345.678', 'Brasileira', 'Solteiro', 'São Paulo', 'Nenhuma', '2018-03-01', 'pedro.alves@gmail.com', 'p.alves@univ.edu.br', 'Ativo', 'Maria Alves', 'João Alves', 1, 1),
+('Ana', 'Carvalho', '1999-05-20', 'Feminino', '222.333.444-55', 'RJ-23.456.789', 'Brasileira', 'Solteira', 'Rio de Janeiro', 'Nenhuma', '2017-03-01', 'ana.carvalho@gmail.com', 'a.carvalho@univ.edu.br', 'Ativo', 'Clara Carvalho', 'Carlos Carvalho', 2, 2),
+('Lucas', 'Fernandes', '2001-07-15', 'Masculino', '333.444.555-66', 'SP-34.567.890', 'Brasileira', 'Solteiro', 'São Paulo', 'Nenhuma', '2019-03-01', 'lucas.fernandes@gmail.com', 'l.fernandes@univ.edu.br', 'Ativo', 'Patrícia Fernandes', 'Roberto Fernandes', 3, 3),
+('Juliana', 'Martins', '2000-11-30', 'Feminino', '444.555.666-77', 'MG-45.678.901', 'Brasileira', 'Solteira', 'Belo Horizonte', 'Nenhuma', '2018-03-01', 'juliana.martins@gmail.com', 'j.martins@univ.edu.br', 'Ativo', 'Sonia Martins', 'Eduardo Martins', 4, 4),
+('Carlos', 'Santos', '1998-03-25', 'Masculino', '555.666.777-88', 'SP-56.789.012', 'Brasileira', 'Casado', 'São Paulo', 'Nenhuma', '2016-03-01', 'carlos.santos@gmail.com', 'c.santos@univ.edu.br', 'Ativo', 'Fernanda Santos', 'Paulo Santos', 5, 5);
+
+-- Inserir telefones dos alunos
+INSERT INTO tbl_telefone_aluno (ra_aluno, num_telefone, tipo_telefone) VALUES
+(1, '(11) 98888-0001', 'Celular'),
+(1, '(11) 3222-0001', 'Fixo'),
+(2, '(21) 97777-0002', 'Celular'),
+(3, '(11) 96666-0003', 'Celular'),
+(4, '(31) 95555-0004', 'Celular');
+
+-- Inserir turmas
+INSERT INTO tbl_turma (cod_curso, sala, ano, semestre, cod_disciplina, cod_professor, periodo, numero_alunos, data_inicio, data_fim) VALUES
+(1, 'Sala 101', 2023, 1, 1, 1, 'Matutino', 30, '2023-02-01', '2023-06-30'),
+(2, 'Sala 202', 2023, 1, 2, 2, 'Integral', 40, '2023-02-01', '2023-06-30'),
+(3, 'Sala 303', 2023, 1, 3, 3, 'Noturno', 25, '2023-02-01', '2023-06-30'),
+(4, 'Sala 404', 2023, 1, 4, 4, 'Matutino', 35, '2023-02-01', '2023-06-30'),
+(5, 'Sala 505', 2023, 1, 5, 5, 'Integral', 20, '2023-02-01', '2023-06-30');
+
+-- Inserir histórico acadêmico
+INSERT INTO tbl_historico (cod_disciplina, ra_aluno, ano, semestre, nota, frequencia, situacao_historico) VALUES
+(1, 1, 2023, 1, 8.5, 90, 'Aprovado'),
+(2, 2, 2023, 1, 7.0, 85, 'Aprovado'),
+(3, 3, 2023, 1, 9.0, 95, 'Aprovado'),
+(4, 4, 2023, 1, 6.5, 80, 'Aprovado'),
+(5, 5, 2023, 1, 5.0, 70, 'Reprovado');
+
+-- Inserir matrículas
+INSERT INTO tbl_matricula (ra_aluno, cod_turma, data_matricula, data_cancelamento, motivo_cancelamento, status_matricula) VALUES
+(1, 1, '2023-01-15', NULL, NULL, 'Ativa'),
+(2, 2, '2023-01-15', NULL, NULL, 'Ativa'),
+(3, 3, '2023-01-15', NULL, NULL, 'Ativa'),
+(4, 4, '2023-01-15', NULL, NULL, 'Ativa'),
+(5, 5, '2023-01-15', NULL, NULL, 'Ativa');
+
+-- Inserir disciplinas por curso
+INSERT INTO tbl_curso_disciplina (cod_curso, cod_disciplina, tipo_disciplina) VALUES
+(1, 1, 'O'),
+(2, 2, 'O'),
+(3, 3, 'O'),
+(4, 4, 'O'),
+(5, 5, 'O');
+
+-- Inserir disciplinas atribuídas aos professores
+INSERT INTO tbl_professor_disciplina (cod_professor, cod_disciplina) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
+
+-- Inserir pré-requisitos das disciplinas
+INSERT INTO tbl_disciplina_prerequisito (cod_disciplina, cod_prerequisito) VALUES
+(2, 1), -- Circuitos Elétricos depende de Introdução à Programação
+(3, 1), -- Teoria Administrativa depende de Introdução à Programação
+(4, 1), -- Cálculo I depende de Introdução à Programação
+(5, 4), -- Mecânica Clássica depende de Cálculo I
+(5, 2); -- Mecânica Clássica depende de Circuitos Elétricos (hipotético)
+        </code></pre>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
