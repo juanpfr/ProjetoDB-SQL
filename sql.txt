@@ -1,0 +1,144 @@
+CREATE DATABASE Universidade;
+
+USE Universidade;
+
+CREATE TABLE tbl_departamento(
+	cod_departamento INT PRIMARY KEY IDENTITY(1,1),
+	nome_departamento VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tbl_endereco(
+	cod_endereco INT PRIMARY KEY IDENTITY(1,1),
+	nome_rua VARCHAR(255) NOT NULL,
+	numero INT,
+	complemento VARCHAR(50) NOT NULL,
+	bairro VARCHAR(100) NOT NULL,
+	cidade VARCHAR(100) NOT NULL,
+	estado VARCHAR(100) NOT NULL,
+	cep VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE tbl_disciplina(
+    cod_disciplina INT PRIMARY KEY IDENTITY(1,1),
+    nome_disciplina VARCHAR(255),
+    ementa VARCHAR(MAX) NOT NULL,
+    cod_departamento INT FOREIGN KEY REFERENCES tbl_departamento(cod_departamento) NOT NULL,
+    carga_horaria_total INT NOT NULL
+);
+
+CREATE TABLE tbl_professor(
+    cod_professor INT PRIMARY KEY IDENTITY(1,1),
+    nome_professor VARCHAR(255) NOT NULL,
+    sobrenome VARCHAR(255) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    identificacao_genero VARCHAR(50) NULL,
+    data_contratacao DATE NOT NULL,
+    tipo_vinculo VARCHAR(50) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    rg VARCHAR(20) NOT NULL UNIQUE,
+    titulacao VARCHAR(50) NOT NULL,
+    cod_endereco INT FOREIGN KEY REFERENCES tbl_endereco(cod_endereco) NOT NULL,
+    email_pessoal VARCHAR(255) NULL,
+    email_corporativo VARCHAR(255) NULL,
+	status_professor VARCHAR(50) NOT NULL,
+    cod_departamento INT FOREIGN KEY REFERENCES tbl_departamento(cod_departamento) NOT NULL
+);
+
+CREATE TABLE tbl_telefone_professor(
+	cod_telefone INT PRIMARY KEY IDENTITY(1,1),
+	cod_professor INT FOREIGN KEY REFERENCES tbl_professor(cod_professor),
+	num_telefone VARCHAR(15) NOT NULL,
+	tipo_telefone VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE tbl_curso(
+	cod_curso INT PRIMARY KEY IDENTITY(1,1),
+	nome_curso VARCHAR(255) NOT NULL,
+	tipo VARCHAR(255) NOT NULL,
+	duracao_meses INT NOT NULL,
+	cod_departamento INT FOREIGN KEY REFERENCES tbl_departamento(cod_departamento),
+	turno VARCHAR(50) NOT NULL,
+	carga_horaria_total INT NOT NULL,
+	modalidade VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE tbl_aluno(
+	ra_aluno INT PRIMARY KEY IDENTITY(1,1),
+	nome_aluno VARCHAR(255) NOT NULL,
+	sobrenome_aluno VARCHAR(255) NOT NULL,
+	data_nascimento DATE NOT NULL,
+	identificacao_genero VARCHAR(50) NULL,
+	cpf VARCHAR(14) NOT NULL UNIQUE,
+	rg varchar(20) NOT NULL UNIQUE,
+	nacionalidade VARCHAR(100) NOT NULL,
+	estado_civil VARCHAR(50) NOT NULL,
+	naturalidade VARCHAR(100) NOT NULL,
+	deficiencia VARCHAR(255) NOT NULL,
+	data_ingresso DATE NOT NULL,
+	email_pessoal VARCHAR(255) NULL,
+	email_coorporativo VARCHAR(255) NULL,
+	status_aluno VARCHAR(50) NOT NULL,
+	nome_mae VARCHAR(255) NOT NULL,
+	nome_pai VARCHAR(255) NULL,
+	cod_endereco FOREIGN KEY REFERENCES tbl_endereco(cod_endereco) NOT NULL,
+	cod_curso FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
+);
+
+CREATE TABLE tbl_telefone_aluno(
+	cod_telefone INT PRIMARY KEY IDENTITY(1,1),
+	ra_aluno FOREIGN KEY REFERENCES tbl_aluno(ra_aluno) NOT NULL,
+	num_telefone VARCHAR(15) NOT NULL,
+	tipo_telefone VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE tbl_turma(
+	cod_turma INT PRIMARY KEY IDENTITY(1,1),
+	cod_curso INT FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
+	sala VARCHAR(50) NOT NULL,
+	ano INT NOT NULL,
+	semestre INT NOT NULL,
+	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
+	cod_professor INT FOREIGN KEY REFERENCES tbl_professor(cod_professor) NOT NULL,
+	periodo VARCHAR(50) NOT NULL,
+	numero_alunos INT NOT NULL,
+	data_inicio DATE NOT NULL,
+	data_fim DATE NULL
+);
+
+CREATE TABLE tbl_historico(
+	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
+	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(cod_aluno) NOT NULL,
+	ano INT NOT NULL,
+	semestre INT NOT NULL,
+	nota DECIMAL(4,2) NOT NULL,
+	frequencia INT NOT NULL,
+	situacao_historico VARCHAR(50),
+	PRIMARY KEY (cod_disciplina, ra_aluno, ano, semestre)
+);
+
+CREATE TABLE tbl_matricula(
+	cod_matricula INT PRIMARY KEY IDENTITY(1,1),
+	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(cod_aluno) NOT NULL,
+	cod_turma INT FOREIGN KEY REFERENCES tbl_turma(cod_turma) NOT NULL,
+	data_matricula DATE NOT NULL,
+	data_cancelamento DATE NULL,
+	motivo_cancelamento TEXT NULL,
+	status_matricula VARCHAR(50)
+);
+
+CREATE TABLE tbl_curso_disciplina(
+	cod_curso INT FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
+	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
+	tipo_disciplina CHAR(1) NOT NULL CHECK (tipo_disciplina IN ('O', 'P'))
+);
+
+CREATE TABLE tbl_professor_disciplina(
+	cod_professor INT FOREIGN KEY REFERENCES tbl_professor(cod_professor) NOT NULL,
+	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL
+);
+
+CREATE TABLE tbl_disciplina_prerequisito(
+	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
+	cod_prerequisito INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
+	PRIMARY KEY (cod_disciplina, cod_prerequisito)
+);
