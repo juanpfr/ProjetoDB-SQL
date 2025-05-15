@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Normalização</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">Universidade DB</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="entidades.html">Entidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="atributos.html">Atributos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="relacionamentos.html">Relacionamentos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="regras.html">Regras de Negócio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="normalizacao.html">Normalização</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Normalização das Tabelas</h1>
+
+        <h2>Primeira Forma Normal (1FN)</h2>
+        <p>Uma tabela está na primeira forma normal quando:</p>
+        <ol>
+            <li>Existe uma chave primária.</li>
+            <li>Somente possui valores atômicos (cada célula contém um valor indivisível).</li>
+            <li>Relação não possui atributos multivalorados ou aninhados.</li>
+            <li>Relação não possui atributos compostos.</li>
+        </ol>
+
+        <p><strong>Exemplo de valores atômicos:</strong></p>
+        <ul>
+            <li><strong>Não atômico:</strong> "Marta Santos" (pode ser dividido em partes significativas)</li>
+            <li><strong>Atômico:</strong> "Marta" (nome próprio), "Santos" (sobrenome) separados</li>
+        </ul>
+
+        <p><strong>Exemplo de atributos compostos:</strong></p>
+        <ul>
+            <li>Endereço</li>
+            <li>Rua, Número, Bairro, Cidade, Estado, CEP</li>
+        </ul>
+
+        <h3>Avaliação das Tabelas - 1FN</h3>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">tbl_aluno - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_historico - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_professor - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_matricula - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_curso - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_departamento - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_turma - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_disciplina - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_curso_disciplina - <span class="badge bg-success">Normalizada</span></li>
+            <li class="list-group-item">tbl_professor_disciplina - <span class="badge bg-success">Normalizada</span></li>
+        </ul>
+
+        <h2>Segunda Forma Normal (2FN)</h2>
+        <p>Uma tabela está na segunda forma normal quando:</p>
+        <ol>
+            <li>Está na 1FN.</li>
+            <li>Todos os atributos não-chave são funcionalmente dependentes da chave primária completa.</li>
+            <li>Não existem dependências parciais.</li>
+            <li>Se existir dependência parcial, deve-se criar uma nova tabela com esses atributos.</li>
+            <li>Um atributo-chave é uma PK ou parte de uma PK composta.</li>
+        </ol>
+
+        <p><strong>Exemplo de violação da 2FN:</strong></p>
+        <div class="table-responsive mb-3">
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>RA_Aluno</th>
+                        <th>Nome_Aluno</th>
+                        <th>Código_Disciplina</th>
+                        <th>Nome_Disciplina</th>
+                        <th>Nota</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>555</td>
+                        <td>Juliana</td>
+                        <td>BD01</td>
+                        <td>Banco de dados</td>
+                        <td>8.5</td>
+                    </tr>
+                    <tr>
+                        <td>555</td>
+                        <td>Juliana</td>
+                        <td>PT01</td>
+                        <td>Programação Python</td>
+                        <td>7.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Neste caso:</p>
+        <ul>
+            <li><strong>Chave composta:</strong> (RA_Aluno, Código_Disciplina)</li>
+            <li><strong>Nome_Aluno</strong> depende apenas do RA_Aluno</li>
+            <li><strong>Nome_Disciplina</strong> depende apenas do Código_Disciplina</li>
+        </ul>
+
+        <p><strong>Solução:</strong></p>
+        <ul>
+            <li>Aluno (RA_Aluno, Nome_Aluno)</li>
+            <li>Disciplina (Código_Disciplina, Nome_Disciplina)</li>
+            <li>Notas (RA_Aluno, Código_Disciplina, Nota)</li>
+        </ul>
+
+        <h2>Terceira Forma Normal (3FN)</h2>
+        <p>Uma tabela está na terceira forma normal quando:</p>
+        <ol>
+            <li>Está na 2FN.</li>
+            <li>Não há dependência transitiva entre atributos não-chave e a chave primária.</li>
+            <li>Todo atributo não-chave depende diretamente da chave primária.</li>
+        </ol>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
