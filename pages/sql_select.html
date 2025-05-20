@@ -89,12 +89,14 @@ SELECT * FROM tbl_professor_disciplina;
 -- Selecionar tabela pré requisito da disciplina
 SELECT * FROM tbl_disciplina_prerequisito;
 
--- Selecionar ra_aluno, nome completo, nome da disciplina, nota e frequência
-SELECT a.ra_aluno, a.nome_aluno + ' ' + a.sobrenome_aluno AS 'nome_completo', d.nome_disciplina, h.nota, h.frequencia FROM tbl_historico AS h
+-- Selecionar ra_aluno, nome completo, nome da disciplina, nota (informações adicionais)
+SELECT a.ra_aluno, a.nome_aluno + ' ' + a.sobrenome_aluno AS 'nome_completo', d.nome_disciplina, h.nota, h.frequencia, h.situacao_historico FROM tbl_historico AS h
 JOIN tbl_aluno AS a
 ON a.ra_aluno = h.ra_aluno
 JOIN tbl_disciplina AS d
-ON d.cod_disciplina = h.cod_disciplina;
+ON d.cod_disciplina = h.cod_disciplina
+WHERE a.ra_aluno = 1
+ORDER BY h.ano, h.semestre;
         </code></pre>
     </div>
 
