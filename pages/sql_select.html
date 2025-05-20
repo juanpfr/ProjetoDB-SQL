@@ -47,34 +47,49 @@
         <pre><code>
 USE Universidade;
 
+-- Selecionar tabela departamento
 SELECT * FROM tbl_departamento;
 
+-- Selecionar tabela curso
 SELECT * FROM tbl_curso;
 
+-- Selecionar tabela aluno
 SELECT * FROM tbl_aluno;
 
+-- Selecionar tabela professor
 SELECT * FROM tbl_professor;
 
+-- Selecionar tabela endereço
 SELECT * FROM tbl_endereco;
 
+-- Selecionar tabela disciplina
 SELECT * FROM tbl_disciplina;
 
+-- Selecionar tabela histórico
 SELECT * FROM tbl_historico;
 
+-- Selecionar tabela telefone do aluno
 SELECT * FROM tbl_telefone_aluno;
 
+-- Selecionar tabela telefone do professor
 SELECT * FROM tbl_telefone_professor;
 
+-- Selecionar tabela matrícula
 SELECT * FROM tbl_matricula;
 
+-- Selecionar tabela turma
 SELECT * FROM tbl_turma;
 
+-- Selecionar tabela de relacionamento curso com disciplina
 SELECT * FROM tbl_curso_disciplina;
 
+-- Selecionar tabela de relacionamento professor com disciplina
 SELECT * FROM tbl_professor_disciplina;
 
+-- Selecionar tabela pré requisito da disciplina
 SELECT * FROM tbl_disciplina_prerequisito;
 
+-- Selecionar ra_aluno, nome completo, nome da disciplina, nota e frequência
 SELECT a.ra_aluno, a.nome_aluno + ' ' + a.sobrenome_aluno AS 'nome_completo', d.nome_disciplina, h.nota, h.frequencia FROM tbl_historico AS h
 JOIN tbl_aluno AS a
 ON a.ra_aluno = h.ra_aluno
