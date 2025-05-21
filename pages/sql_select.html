@@ -41,6 +41,16 @@
 
     <div class="container mt-5">
         <h1 class="mb-4">Comandos SQL - SELECT</h1>
+        <div class="list-group">
+            <a href="sql_testes.html" class="list-group-item list-group-item-action">TESTES</a>
+            <a href="sql_joins.html" class="list-group-item list-group-item-action">JOINS</a>
+            <a href="sql_views.html" class="list-group-item list-group-item-action">VIEWS</a>
+            <!-- Adicione outros links conforme desejar -->
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Comandos SQL - SELECT</h1>
         <p class="mb-4">
             Os comandos <strong>SELECT</strong> são usados para analizar dados e fazer testes nas tabelas já criadas.
         </p>
@@ -88,110 +98,8 @@ SELECT * FROM tbl_professor_disciplina;
 
 -- Selecionar tabela pré requisito da disciplina
 SELECT * FROM tbl_disciplina_prerequisito;
-
-
-
--- TESTES
-
-
-
--- Selecionar ra_aluno, nome completo, nome da disciplina, nota e frequência
-SELECT
-	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
-	d.nome_disciplina,
-	h.nota, h.frequencia,
-	h.situacao_historico
-FROM tbl_historico AS h
-JOIN tbl_aluno AS a
-ON a.ra_aluno = h.ra_aluno
-JOIN tbl_disciplina AS d
-ON d.cod_disciplina = h.cod_disciplina
-WHERE a.ra_aluno = 1
-ORDER BY h.ano, h.semestre;
-
--- Selecionar professores que ministram determinada disciplina
-SELECT
-	p.cod_professor,
-	p.nome_professor + ' ' + p.sobrenome AS 'Nome completo',
-	d.nome_disciplina
-FROM tbl_professor_disciplina AS pd
-JOIN tbl_professor AS p
-ON p.cod_professor = pd.cod_professor
-JOIN tbl_disciplina AS d
-ON d.cod_disciplina = pd.cod_disciplina;
-
--- Selecionar alunos matriculados em uma turma específica
-SELECT
-	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
-	t.cod_turma AS 'Turma',
-	t.ano,
-	t.semestre,
-	m.status_matricula,
-	m.data_matricula
-FROM tbl_matricula AS m
-JOIN tbl_aluno AS a
-ON a.ra_aluno = m.ra_aluno
-JOIN tbl_turma AS t
-ON t.cod_turma = m.cod_turma;
-
--- Selecionar as disciplinas obrigatórias de um curso
-SELECT
-	c.nome_curso,
-	d.nome_disciplina,
-	cd.tipo_disciplina
-FROM tbl_curso_disciplina AS cd
-JOIN tbl_curso AS c
-ON c.cod_curso = cd.cod_curso
-JOIN tbl_disciplina AS d
-ON d.cod_disciplina = cd.cod_disciplina
-WHERE tipo_disciplina = 'O';
-
--- Selecionar completo de um aluno
-SELECT
-	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
-	e.nome_rua,
-	e.numero,
-	e.complemento,
-	e.cidade,
-	e.estado,
-	e.cep
-FROM tbl_aluno AS a
-JOIN tbl_endereco AS e
-ON a.cod_endereco = e.cod_endereco;
-
--- Selecionar disciplinas que possuem pré-requisitos
-SELECT
-	d.nome_disciplina,
-	dp.nome_disciplina AS 'Pré-requisito'
-FROM tbl_disciplina_prerequisito AS pr
-JOIN tbl_disciplina AS d
-ON d.cod_disciplina = pr.cod_disciplina
-JOIN tbl_disciplina AS dp
-ON pr.cod_prerequisito = dp.cod_disciplina
-ORDER BY d.nome_disciplina;
-
--- Selecionar alunos e seus respectivos cursos
-SELECT
-	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
-	c.nome_curso,
-	c.tipo,
-	c.duracao_meses,
-	d.nome_departamento AS 'Nome do departamento',
-	c.turno,
-	c.carga_horaria_total,
-	c.modalidade
-FROM tbl_aluno AS a
-JOIN tbl_curso AS c
-ON a.cod_curso = c.cod_curso
-JOIN tbl_departamento AS d
-ON c.cod_departamento = d.cod_departamento;
         </code></pre>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
