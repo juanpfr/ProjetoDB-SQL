@@ -172,6 +172,23 @@ ON d.cod_disciplina = pr.cod_disciplina
 JOIN tbl_disciplina AS dp
 ON pr.cod_prerequisito = dp.cod_disciplina
 ORDER BY d.nome_disciplina;
+
+-- Selecionar alunos e seus respectivos cursos
+SELECT
+	a.ra_aluno,
+	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
+	c.nome_curso,
+	c.tipo,
+	c.duracao_meses,
+	d.nome_departamento AS 'Nome do departamento',
+	c.turno,
+	c.carga_horaria_total,
+	c.modalidade
+FROM tbl_aluno AS a
+JOIN tbl_curso AS c
+ON a.cod_curso = c.cod_curso
+JOIN tbl_departamento AS d
+ON c.cod_departamento = d.cod_departamento;
         </code></pre>
     </div>
 
