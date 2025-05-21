@@ -50,7 +50,7 @@ USE Universidade;
 -- Selecionar ra_aluno, nome completo, nome da disciplina, nota e frequência
 SELECT
 	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
+	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo do aluno',
 	d.nome_disciplina,
 	h.nota, h.frequencia,
 	h.situacao_historico
@@ -76,7 +76,7 @@ ON d.cod_disciplina = pd.cod_disciplina;
 -- Selecionar alunos matriculados em uma turma específica
 SELECT
 	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
+	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo do aluno',
 	t.cod_turma AS 'Turma',
 	t.ano,
 	t.semestre,
@@ -103,7 +103,7 @@ WHERE tipo_disciplina = 'O';
 -- Selecionar completo de um aluno
 SELECT
 	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
+	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo do aluno',
 	e.nome_rua,
 	e.numero,
 	e.complemento,
@@ -128,7 +128,7 @@ ORDER BY d.nome_disciplina;
 -- Selecionar alunos e seus respectivos cursos
 SELECT
 	a.ra_aluno,
-	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo',
+	a.nome_aluno + ' ' + a.sobrenome_aluno AS 'Nome completo do aluno',
 	c.nome_curso,
 	c.tipo,
 	c.duracao_meses,
@@ -157,7 +157,7 @@ GROUP BY c.nome_curso;
 -- Selecionar turma com seus professores responsáveis e disciplinas
 SELECT
 	t.cod_turma,
-	p.nome_professor + ' ' + p.sobrenome AS 'Nome completo',
+	p.nome_professor + ' ' + p.sobrenome AS 'Nome completo do professor',
 	d.nome_disciplina
 FROM tbl_turma AS t
 JOIN tbl_professor AS p
@@ -168,11 +168,21 @@ ON t.cod_disciplina = d.cod_disciplina;
 -- Selecionar sala onde um professor está ministrando aulas
 SELECT
 	t.cod_turma,
-	p.nome_professor + ' ' + p.sobrenome AS 'Nome completo',
-	t.sala
+	p.nome_professor + ' ' + p.sobrenome AS 'Nome completo do professor',
+	t.sala,
+	t.ano,
+	t.semestre
 FROM tbl_turma AS t
 JOIN tbl_professor AS p
 ON t.cod_professor = p.cod_professor;
+
+-- Selecionar departamento de um professor, ou seja, a qual departamento ele pertence?
+SELECT
+	p.nome_professor + ' ' + p.sobrenome AS 'Nome completo do professor',
+	d.nome_departamento
+FROM tbl_professor AS p
+JOIN tbl_departamento AS d
+ON p.cod_departamento = d.cod_departamento;
         </code></pre>
     </div>
 
