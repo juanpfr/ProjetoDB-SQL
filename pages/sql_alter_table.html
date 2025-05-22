@@ -52,6 +52,10 @@ SELECT * FROM tbl_aluno;
 
 SELECT * FROM tbl_professor;
 
+SELECT * FROM tbl_curso_disciplina;
+
+SELECT * FROM tbl_matricula;
+
 -- Adicionando uma "constraint" a coluna gênero
 ALTER TABLE tbl_aluno
 ADD CONSTRAINT ck_genero_aluno CHECK(identificacao_genero IN('Masculino', 'Feminino', 'Outro'));
@@ -79,6 +83,14 @@ ADD CONSTRAINT ck_status_professor CHECK(status_professor IN ('Ativo', 'Inativo'
 -- Adicionando "constraint" tipo de vínculo do professor permitido
 ALTER TABLE tbl_professor
 ADD CONSTRAINT ck_tipo_vinculo_professor CHECK(tipo_vinculo IN ('Efetivo', 'Substituto', 'Temporário'));
+
+-- Adicionando "constraint" para tipo de disciplina permitido
+ALTER TABLE tbl_curso_disciplina
+ADD CONSTRAINT ck_tipo_disciplina CHECK(tipo_disciplina IN ('Obrigatória', 'Optativa'));
+
+-- Adicionando "constraint" para status da matrícula
+ALTER TABLE tbl_matricula
+ADD CONSTRAINT ck_status_matricula CHECK(status_matricula IN ('Ativa', 'Cancelada', 'Trancada'));
         </code></pre>
     </div>
 

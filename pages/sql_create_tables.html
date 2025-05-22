@@ -179,7 +179,7 @@ CREATE TABLE tbl_matricula(
 CREATE TABLE tbl_curso_disciplina(
 	cod_curso INT FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
 	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
-	tipo_disciplina CHAR(1) NOT NULL CHECK (tipo_disciplina IN ('O', 'P'))
+	tipo_disciplina VARCHAR(15)
 );
 
 CREATE TABLE tbl_professor_disciplina(
