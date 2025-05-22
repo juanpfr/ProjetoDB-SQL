@@ -49,6 +49,8 @@ USE Universidade;
 
 SELECT * FROM tbl_aluno;
 
+SELECT * FROM tbl_professor;
+
 -- Adicionando coluna gênero na tbl_aluno
 ALTER TABLE tbl_aluno
 ADD genero VARCHAR(20);
@@ -64,6 +66,21 @@ ADD genero VARCHAR(20);
 -- Adicionando uma "constrant" a coluna gênero
 ALTER TABLE tbl_professor
 ADD CONSTRAINT genero_ck_professor CHECK(genero IN('Masculino', 'Feminino', 'Outro'));
+
+-- Status do aluno permitido
+ALTER TABLE tbl_aluno
+ADD CONSTRAINT ck_status_aluno CHECK(status_aluno IN ('Ativo', 'Formado', 'Trancado', 'Cancelado'));
+
+-- Status do professor permitido
+ALTER TABLE tbl_professor
+ADD CONSTRAINT ck_status_professor CHECK(status_professor IN ('Ativo', 'Formado', 'Trancado', 'Cancelado'));
+
+-- Status do professor permitido (corrigido)
+ALTER TABLE tbl_professor
+DROP CONSTRAINT ck_status_professor;
+
+ALTER TABLE tbl_professor
+ADD CONSTRAINT ck_status_professor CHECK(status_professor IN ('Ativo', 'Inativo', 'Licenciado'));
         </code></pre>
     </div>
 
