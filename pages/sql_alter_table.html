@@ -47,31 +47,24 @@
         <pre><code>
 USE Universidade;
 
+-- Importante selecionar a tabela para ter noção das alterações
 SELECT * FROM tbl_aluno;
 
 SELECT * FROM tbl_professor;
 
--- Adicionando coluna gênero na tbl_aluno
+-- Adicionando uma "constraint" a coluna gênero
 ALTER TABLE tbl_aluno
-ADD genero VARCHAR(20);
+ADD CONSTRAINT ck_genero_aluno CHECK(identificacao_genero IN('Masculino', 'Feminino', 'Outro'));
 
--- Adicionando uma "constrant" a coluna gênero
-ALTER TABLE tbl_aluno
-ADD CONSTRAINT genero_ck CHECK(genero IN('Masculino', 'Feminino', 'Outro'));
-
--- Adicionando coluna gênero na tbl_professor
+-- Adicionando uma "constraint" a coluna gênero
 ALTER TABLE tbl_professor
-ADD genero VARCHAR(20);
-
--- Adicionando uma "constrant" a coluna gênero
-ALTER TABLE tbl_professor
-ADD CONSTRAINT genero_ck_professor CHECK(genero IN('Masculino', 'Feminino', 'Outro'));
+ADD CONSTRAINT ck_genero_professor CHECK(identificacao_genero IN('Masculino', 'Feminino', 'Outro'));
 
 -- Status do aluno permitido
 ALTER TABLE tbl_aluno
 ADD CONSTRAINT ck_status_aluno CHECK(status_aluno IN ('Ativo', 'Formado', 'Trancado', 'Cancelado'));
 
--- Status do professor permitido
+-- Status do professor permitido (errado)
 ALTER TABLE tbl_professor
 ADD CONSTRAINT ck_status_professor CHECK(status_professor IN ('Ativo', 'Formado', 'Trancado', 'Cancelado'));
 
@@ -79,8 +72,13 @@ ADD CONSTRAINT ck_status_professor CHECK(status_professor IN ('Ativo', 'Formado'
 ALTER TABLE tbl_professor
 DROP CONSTRAINT ck_status_professor;
 
+-- Adicionando "constraint" status do professor
 ALTER TABLE tbl_professor
 ADD CONSTRAINT ck_status_professor CHECK(status_professor IN ('Ativo', 'Inativo', 'Licenciado'));
+
+-- Adicionando "constraint" tipo de vínculo do professor permitido
+ALTER TABLE tbl_professor
+ADD CONSTRAINT ck_tipo_vinculo_professor CHECK(tipo_vinculo IN ('Efetivo', 'Substituto', 'Temporário'));
         </code></pre>
     </div>
 
