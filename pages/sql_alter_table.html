@@ -56,6 +56,8 @@ SELECT * FROM tbl_curso_disciplina;
 
 SELECT * FROM tbl_matricula;
 
+SELECT * FROM tbl_curso;
+
 -- Adicionando uma "constraint" a coluna gênero
 ALTER TABLE tbl_aluno
 ADD CONSTRAINT ck_genero_aluno CHECK(identificacao_genero IN('Masculino', 'Feminino', 'Outro'));
@@ -91,6 +93,14 @@ ADD CONSTRAINT ck_tipo_disciplina CHECK(tipo_disciplina IN ('Obrigatória', 'Opt
 -- Adicionando "constraint" para status da matrícula
 ALTER TABLE tbl_matricula
 ADD CONSTRAINT ck_status_matricula CHECK(status_matricula IN ('Ativa', 'Cancelada', 'Trancada'));
+
+-- Adicionando "constraint" para turno permitido do curso
+ALTER TABLE tbl_curso
+ADD CONSTRAINT ck_turno_curso CHECK(turno IN ('Matutino', 'Vespertino', 'Noturno', 'Integral'));
+
+-- Adicionando "constraint" para modalidade do curso
+ALTER TABLE tbl_curso
+ADD CONSTRAINT ck_modalidade_curso CHECK(modalidade IN ('Presencial', 'EAD'));
         </code></pre>
     </div>
 
