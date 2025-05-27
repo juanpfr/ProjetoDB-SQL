@@ -80,13 +80,13 @@ CREATE TABLE tbl_aluno(
 	status_aluno VARCHAR(50) NOT NULL,
 	nome_mae VARCHAR(255) NOT NULL,
 	nome_pai VARCHAR(255) NULL,
-	cod_endereco FOREIGN KEY REFERENCES tbl_endereco(cod_endereco) NOT NULL,
-	cod_curso FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
+	cod_endereco INT FOREIGN KEY REFERENCES tbl_endereco(cod_endereco) NOT NULL,
+	cod_curso INT FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
 );
 
 CREATE TABLE tbl_telefone_aluno(
 	cod_telefone INT PRIMARY KEY IDENTITY(1,1),
-	ra_aluno FOREIGN KEY REFERENCES tbl_aluno(ra_aluno) NOT NULL,
+	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(ra_aluno) NOT NULL,
 	num_telefone VARCHAR(15) NOT NULL,
 	tipo_telefone VARCHAR(30) NOT NULL
 );
@@ -107,7 +107,7 @@ CREATE TABLE tbl_turma(
 
 CREATE TABLE tbl_historico(
 	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
-	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(cod_aluno) NOT NULL,
+	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(ra_aluno) NOT NULL,
 	ano INT NOT NULL,
 	semestre INT NOT NULL,
 	nota DECIMAL(4,2) NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE tbl_historico(
 
 CREATE TABLE tbl_matricula(
 	cod_matricula INT PRIMARY KEY IDENTITY(1,1),
-	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(cod_aluno) NOT NULL,
+	ra_aluno INT FOREIGN KEY REFERENCES tbl_aluno(ra_aluno) NOT NULL,
 	cod_turma INT FOREIGN KEY REFERENCES tbl_turma(cod_turma) NOT NULL,
 	data_matricula DATE NOT NULL,
 	data_cancelamento DATE NULL,
@@ -129,7 +129,7 @@ CREATE TABLE tbl_matricula(
 CREATE TABLE tbl_curso_disciplina(
 	cod_curso INT FOREIGN KEY REFERENCES tbl_curso(cod_curso) NOT NULL,
 	cod_disciplina INT FOREIGN KEY REFERENCES tbl_disciplina(cod_disciplina) NOT NULL,
-	tipo_disciplina CHAR(1) NOT NULL CHECK (tipo_disciplina IN ('O', 'P'))
+	tipo_disciplina VARCHAR(15)
 );
 
 CREATE TABLE tbl_professor_disciplina(
